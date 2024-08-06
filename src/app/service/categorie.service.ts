@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Categorie } from '../models/categorie';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class CategorieService {
 
   getAllCategorie():Observable<any>
   {
-    return this.httpClient.get(this.categorieUrl);
+    return this.httpClient.get<any>(this.categorieUrl);
   }
 
   getById(id:number):Observable<any>

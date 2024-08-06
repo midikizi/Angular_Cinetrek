@@ -21,7 +21,7 @@ export class PostComponent implements OnInit{
 
   ngOnInit(){
     this.postCategorieForm = this.fb.group({
-      name: ['', Validators.required],
+      nom: ['', Validators.required],
       description: ['', Validators.required],
     })
   }
@@ -31,7 +31,7 @@ export class PostComponent implements OnInit{
     this.service.postCategorie(this.postCategorieForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/categorie");
+        this.router.navigate(['/home/categorie']);
       }
     })
   }

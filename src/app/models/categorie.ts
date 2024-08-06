@@ -2,14 +2,13 @@ import { Film } from './film';
 
 export class Categorie {
   id: number;
-  name: string;
+  nom: string;
   description: string;
-  films:Film [];
+
 
   constructor(){
     this.id = 0;
-    this.name = '';
+    this.nom = '';
     this.description = '';
-    this.films = [];
   }
 }

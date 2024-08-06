@@ -59,7 +59,7 @@
           <a onclick="window.location.href = 'http://localhost:4200/categorie';"  class="btn btn-outline-gray me-2 active" data-bs-toggle="modal" data-bs-target="#myModal"><i class="feather-list"></i></a>
           <!-- <a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a> -->
           <!-- <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a> -->
-          <a  routerLink="/postCategorie"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i></a>
+          <a  routerLink="/home/postCategorie"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i></a>
         </div>
       </div>
     </div>
@@ -81,29 +81,28 @@
             <th class="text-end">Action</th>
           </tr>
         </thead>
-
-        <tbody *ngFor="let cat of categories">
-          <tr>
-            <td>
-              <div class="form-check check-tables">
-                <input class="form-check-input" type="checkbox"  value="something">
-              </div>
-            </td>
-            <td>PRE{{cat.id}}</td>
-            <td>{{cat.name}}</td>
-            <td>{{cat.description}}</td>
-            <td class="text-end">
-              <div class="actions ">
-                <a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
-                  <i class="feather-eye"></i>
-                </a>
-                <button routerLink="/updateCategorie/{{cat.id}}" class="btn btn-sm bg-danger-light">
-                  <i class="feather-edit"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+          <tbody *ngFor="let cat of categories, let i=index">
+            <tr>
+              <td>
+                <div class="form-check check-tables">
+                  <input class="form-check-input" type="checkbox"  value="something">
+                </div>
+              </td>
+              <td>PRE{{i+1}}</td>
+              <td>{{cat.nom}}</td>
+              <td>{{cat.description}}</td>
+              <td class="text-end">
+                <div class="actions ">
+                  <a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
+                    <i class="feather-eye"></i>
+                  </a>
+                  <button routerLink="/home/updateCategorie/{{cat.id}}" class="btn btn-sm bg-danger-light">
+                    <i class="feather-edit"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
       </table>
     </div>
   </div>

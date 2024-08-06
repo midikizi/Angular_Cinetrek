@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Categorie } from 'src/app/models/categorie';
 import { CategorieService } from './../../service/categorie.service';
 
@@ -14,14 +14,17 @@ export class CategorieComponent implements OnInit{
   constructor(
     private service: CategorieService,){}
 
+
+
   ngOnInit() {
     this.getCategorie();
   }
 
   getCategorie(){
-    this.service.getAllCategorie().subscribe((data:Categorie[])=>{
-      this.categories=data;
-      console.log(data);
+    this.service.getAllCategorie().subscribe(
+      (data)=>{
+      this.categories=data.results;
+      console.log(data.results);
     },
     (error)=>{
       console.log("error", error)
