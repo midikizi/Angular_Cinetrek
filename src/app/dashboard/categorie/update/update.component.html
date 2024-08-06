@@ -1,0 +1,87 @@
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+<!-- Page Header -->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col-sm-12">
+  <div class="page-sub-header">
+    <h3 class="page-title">Ajout Films</h3>
+    <!-- <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+      <li class="breadcrumb-item active">Add Students</li>
+    </ul> -->
+  </div>
+</div>
+</div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+<div class="col-sm-12">
+
+<div class="card comman-shadow">
+  <div class="card-body">
+
+    <form [formGroup]="updateCategorieForm">
+
+      <div class="row">
+        <div class="col-12">
+          <h5 class="form-title student-info">Modification Categorie<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nom <span class="login-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="Nom" formControlName="name">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Description <span class="login-danger">*</span></label>
+            <textarea rows="4" cols="50" class="form-control" formControlName="description">
+              descrition...
+            </textarea>
+
+          </div>
+        </div>
+        <!-- <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Categorie <span class="login-danger">*</span></label>
+            <select class="form-control select">
+              <option>categorie</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Others</option>
+              </select>
+          </div>
+        </div> -->
+        <!-- <div class="col-12 col-sm-4">
+          <div class="form-group local-forms calendar-icon">
+            <label >Date de sortie  <span class="login-danger">*</span></label>
+            <input class="form-control datetimepicker" type="date"   >
+          </div>
+        </div>
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Durée </label>
+            <input class="form-control" type="text" placeholder="Durée du film" >
+          </div>
+        </div> -->
+
+        <div class="col-12">
+          <div class="student-submit">
+            <button type="submit" class="btn btn-primary" (click)="updateCategorie()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /Page Wrapper -->
