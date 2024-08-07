@@ -9,8 +9,7 @@ export class Film {
     dateSortie: Date;
     duree: number;
     photo: string;
-    projections: Projection [];
-    categorie: Categorie;
+    category: Categorie;
 
     constructor() {
         this.id = 0;
@@ -20,7 +19,6 @@ export class Film {
         this.dateSortie = new Date();
         this.duree = 0;
         this.photo = '';
-        this.projections = [];
-        this.categorie = new Categorie();
+        this.category = new Categorie();
     } 
 }

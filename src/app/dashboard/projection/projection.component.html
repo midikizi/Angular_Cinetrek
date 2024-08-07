@@ -59,7 +59,7 @@
           <a href="students.html" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
           <a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
           <!-- <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a> -->
-          <a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          <a routerLink="/home/postProjection" class="btn btn-primary"><i class="fas fa-plus"></i></a>
         </div>
       </div>
     </div>
@@ -81,16 +81,16 @@
             <th class="text-end">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let item of projections, let i=index">
           <tr>
             <td>
               <div class="form-check check-tables">
                 <input class="form-check-input" type="checkbox"  value="something">
               </div>
             </td>
-            <td>PRE2209</td>
-            <td>Female</td>
-						<td>Mathematics</td>
+            <td>PRE{{i+1}}</td>
+            <td>{{item.date}}</td>
+						<td>{{}}</td>
 						<td>Harry poter</td>
             <td class="text-end">
               <div class="actions ">

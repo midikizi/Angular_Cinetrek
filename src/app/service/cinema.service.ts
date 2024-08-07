@@ -13,11 +13,11 @@ export class CinemaService {
   private cinemaUrl = 'http://localhost:8000/api/cinema/cinema/';
 
   getAllCinema():Observable<any>{
-    return this.httpClient.get(this.cinemaUrl);
+    return this.httpClient.get<any>(this.cinemaUrl);
   }
 
   getById(id:number):Observable<any>{
-    return this.httpClient.get(this.cinemaUrl+id);
+    return this.httpClient.get<any>(this.cinemaUrl+id);
   }
 
   deleteCinema(id:number){

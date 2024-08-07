@@ -18,10 +18,11 @@ export class ProjectionComponent implements OnInit{
   }
 
   getProjection() {
-    this.service.getAllProjection().subscribe((data:Projection[])=>{
-      this.projections = data;
-      console.log(data);
-    },(error)=>{console.log("error")});
+    this.service.getAllProjection().subscribe(
+      (data)=>{
+      this.projections = data.results;
+      console.log(data.results);
+    },(error)=>{console.log("error",error)});
   }
 
   deleteProjection(id:number){
@@ -29,7 +30,7 @@ export class ProjectionComponent implements OnInit{
       console.log(data);
       this.getProjection();
     },(error)=>{
-      console.log("error");
+      console.log("error",error);
     });
   }
 

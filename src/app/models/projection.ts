@@ -5,20 +5,16 @@ import { Ticket } from "./ticket";
 
 export class Projection {
   id: number;
-  dateProjection: Date;
+  date: Date;
   prix: number;
-  salle: Salle; // Remplace @ManyToOne
-  film: Film; // Remplace @ManyToOne
-  tickets: Ticket[]; // Remplace @OneToMany
-  seance: Seance; 
-
+  heureDebut:Date;
+  film:Film;
+  
   constructor(){
     this.id = 0;
-    this.dateProjection = new Date();
+    this.date = new Date();
     this.prix = 0;
-    this.salle = new Salle();
-    this.film = new Film();
-    this.tickets = [];
-    this.seance = new Seance();
+    this.heureDebut= new Date();
+    this.film= new Film;
   }
 }

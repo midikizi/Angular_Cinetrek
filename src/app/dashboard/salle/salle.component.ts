@@ -17,10 +17,11 @@ export class SalleComponent implements OnInit{
   }
 
   getSalle() {
-    this.service.getAllSalle().subscribe((data:Salle[])=>{
-      this.Salles = data;
-      console.log(data);
-    },(error)=>{console.log("error")});
+    this.service.getAllSalle().subscribe(
+      (data)=>{
+      this.Salles = data.results;
+      console.log(data.results);
+    },(error)=>{console.log("error",error)});
   }
 
   deleteProjection(id:number){
@@ -28,7 +29,7 @@ export class SalleComponent implements OnInit{
       console.log(data);
       this.getSalle();
     },(error)=>{
-      console.log("error");
+      console.log("error",error);
     });
   }
 

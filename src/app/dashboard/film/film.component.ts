@@ -35,12 +35,13 @@ export class FilmComponent implements OnInit{
   // }
 
   getFilm() {
-    this.service.getAllFilm().subscribe((data: Film[])=>{
-      this.films = data;
-      console.log(data);
+    this.service.getAllFilm().subscribe(
+      (data)=>{
+      this.films = data.results;
+      console.log(data.results);
     },
     (error)=>{
-      console.log("error")
+      console.log("error",error)
     });
   }
 

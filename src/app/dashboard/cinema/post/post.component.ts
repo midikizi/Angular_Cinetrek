@@ -14,7 +14,7 @@ import { VilleService } from 'src/app/service/ville.service';
 })
 export class PostCinemaComponent implements OnInit{
 
-  postCinemaForm: FormGroup | any
+  postCinemaForm:FormGroup|any
   cinemas!: Cinema[];
   villes!: Ville[];
 
@@ -28,8 +28,7 @@ export class PostCinemaComponent implements OnInit{
     this.postCinemaForm = this.fb.group({
       name: ['', Validators.required],
       nombreSalle: ['', Validators.required],
-      ville: ['', Validators.required],
-      latitude: ['', Validators.required],
+      latitute: ['', Validators.required],
       longitude: ['', Validators.required],
       altitude: ['', Validators.required],
   })
@@ -42,7 +41,7 @@ export class PostCinemaComponent implements OnInit{
       console.log(data);
     },
     (error)=>{
-      console.log("error")
+      console.log("error",error)
     });
   }
 
@@ -51,7 +50,7 @@ export class PostCinemaComponent implements OnInit{
     this.service.postCinema(this.postCinemaForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/cinema");
+        this.router.navigate(['/home/cinema']);
       }
     })
   }

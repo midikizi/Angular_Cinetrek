@@ -10,7 +10,6 @@ import { CinemaService } from 'src/app/service/cinema.service';
 export class CinemaComponent implements OnInit{
   cinemas!:Cinema[];
   cinema: Cinema | undefined;
-  noms!: Cinema[];
 
   constructor(
     private service: CinemaService,){}
@@ -19,12 +18,13 @@ export class CinemaComponent implements OnInit{
   }
 
   getCinema(){
-    this.service.getAllCinema().subscribe((data:Cinema[])=>{
-      this.cinemas=data;
-      console.log(data);
+    this.service.getAllCinema().subscribe(
+      (data)=>{
+      this.cinemas=data.results;
+      console.log(data.results);
     },
     (error)=>{
-      console.log("error")
+      console.log("error", error)
     });
   }
 
@@ -34,7 +34,7 @@ export class CinemaComponent implements OnInit{
       this.getCinema();
     },
     (error)=>{
-      console.log("error")
+      console.log("error", error)
     });
   }
 

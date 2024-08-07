@@ -19,7 +19,7 @@ export class CategorieService {
 
   getById(id:number):Observable<any>
   {
-    return this.httpClient.get(this.categorieUrl+id);
+    return this.httpClient.get<any>(this.categorieUrl+id);
   }
 
   deleteCategorie(id: number)

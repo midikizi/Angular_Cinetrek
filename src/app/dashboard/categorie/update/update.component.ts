@@ -21,7 +21,7 @@ export class UpdateComponent implements OnInit{
   ngOnInit(){
     this.getCategorieById();
     this.updateCategorieForm = this.fb.group({
-      name: ['',Validators.required],
+      nom: ['',Validators.required],
       description: ['',Validators.required],
     }) 
   }
