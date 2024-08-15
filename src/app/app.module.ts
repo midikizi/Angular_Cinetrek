@@ -8,11 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpinterceportInterceptor } from './service/httpinterceport.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
 
 
   ],
@@ -22,6 +23,8 @@ import { HttpinterceportInterceptor } from './service/httpinterceport.intercepto
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideHttpClient(),

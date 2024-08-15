@@ -19,8 +19,11 @@ import { SeanceComponent } from './seance/seance.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { VilleComponent } from './ville/ville.component';
-// import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostCinemaComponent } from './cinema/post/post.component';
+import { PostFilmComponent } from './film/post/post.component';
+import { PostProjectionComponent } from './projection/post/post.component';
 
 
 @NgModule({
@@ -42,12 +45,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UpdateComponent,
     ShowComponent,
     GridComponent,
+    PostCinemaComponent,
+    PostFilmComponent ,
+    PostProjectionComponent ,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
-    // HttpClientModule,
     ReactiveFormsModule,
   ]
 })

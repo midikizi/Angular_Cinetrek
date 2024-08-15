@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Categorie } from 'src/app/models/categorie';
 import { CategorieService } from './../../service/categorie.service';
 
@@ -32,9 +32,10 @@ export class CategorieComponent implements OnInit{
   }
 
   deleteCategorie(id:number){
+    this.categories = this.categories.filter(obj=> obj.id !== id);
     this.service.deleteCategorie(id).subscribe((data)=>{
       console.log(data);
-      this.getCategorie();
+
     },
     (error)=>{
       console.log("error")

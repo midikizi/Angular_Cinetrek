@@ -23,15 +23,17 @@
 
 <div class="card comman-shadow">
   <div class="card-body">
-    <form >
+
+    <form [formGroup]="postFilmForm " (ngSubmit)="postFilm()">
       <div class="row">
         <div class="col-12">
-          <h5 class="form-title student-info">Film Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+          <h5 class="form-title student-info">Film Information <span><a href="javascript:;"><i class="feather-more-vertical">
+          </i></a></span></h5>
         </div>
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Titre <span class="login-danger">*</span></label>
-            <input class="form-control" type="text" placeholder="Titre" >
+            <input class="form-control" type="text" placeholder="titre" >
           </div>
         </div>
         <div class="col-12 col-sm-4">

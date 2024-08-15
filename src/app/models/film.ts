@@ -1,24 +1,23 @@
 import { Categorie } from "./categorie";
 import { Projection } from "./projection";
 
-export class Film {
-    id: number;
+export class FilmPost {
     titre: string;
-    description: string;
+    duree: Date;
     realisateur: string;
-    dateSortie: Date;
-    duree: number;
-    photo: string;
-    category: Categorie;
+    description: string;
+    photo             : null;
+    dateSortie: null;
+    category   : []
+
 
     constructor() {
-        this.id = 0;
-        this.titre = '';
-        this.description = '';
-        this.realisateur = '';
-        this.dateSortie = new Date();
-        this.duree = 0;
-        this.photo = '';
-        this.category = new Categorie();
-    } 
+      this.titre: "",
+      this.duree: null,
+      this.realisateur: "",
+      this.description   : "";
+      this.photo             : null
+      this.dateSortie     : null;
+      this.category   : []
+    }
 }

@@ -17,8 +17,7 @@ export class CategorieService {
     return this.httpClient.get<any>(this.categorieUrl);
   }
 
-  getById(id:number):Observable<any>
-  {
+  getById(id:number):Observable<any>{
     return this.httpClient.get<any>(this.categorieUrl+id);
   }
 

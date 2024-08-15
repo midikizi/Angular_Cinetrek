@@ -93,9 +93,9 @@
               <td>{{cat.description}}</td>
               <td class="text-end">
                 <div class="actions ">
-                  <a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
-                    <i class="feather-eye"></i>
-                  </a>
+                  <button  class="btn btn-sm bg-success-light me-2 " (click)="deleteCategorie(cat.id)">
+                    <i class="fa-regular fa-trash-can"></i>
+                  </button>
                   <button routerLink="/home/updateCategorie/{{cat.id}}" class="btn btn-sm bg-danger-light">
                     <i class="feather-edit"></i>
                   </button>

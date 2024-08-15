@@ -40,24 +40,27 @@
 
     <div class="student-pro-list">
       <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+
+        <div class="col-xl-3 col-lg-4 col-md-6 d-flex" *ngFor="let item of films; let i = index">
           <div class="card">
             <div class="card-body">
               <div class="student-box flex-fill">
                 <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-03.jpg">
+                  <a href="">
+                    {{item.photo}}
+                    <!-- <img class="img-fluid" [src]="item.photo" alt="Image {{i + 1}}" /> -->
                   </a>
                 </div>
                 <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Malynne</a></h5>
-                  <h6>Student</h6>
+                  <h5><a href="">{{item.category}}</a></h5>
+                  <h6>{{item.titre}}</h6>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+
+        <!-- <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
           <div class="card">
             <div class="card-body">
               <div class="student-box flex-fill">
@@ -73,109 +76,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-05.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Minnie</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-06.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Lois A</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-07.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Calvin</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-08.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Charles Dickens</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-09.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Joe Kelley</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
-          <div class="card">
-            <div class="card-body">
-              <div class="student-box flex-fill">
-                <div class="student-img">
-                  <a href="student-details.html">
-                    <img class="img-fluid" alt="Students Info" src="assets/img/profiles/avatar-10.jpg">
-                  </a>
-                </div>
-                <div class="student-content pb-0">
-                  <h5><a href="student-details.html">Charles Dickens</a></h5>
-                  <h6>Student</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> -->
+
       </div>
     </div>
   </div>

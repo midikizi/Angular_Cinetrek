@@ -14,11 +14,10 @@ export class Cinema {
   constructor() {
     this.id = 0;
     this.nom = '';
+    this.nombreSalle = 0;
     this.longitude = 0;
     this.latitute = 0;
     this.altitude = 0;
-    this.nombreSalle = 0;
-    // this.salles = [];
-    // this.ville = new Ville();
+
   }
 }

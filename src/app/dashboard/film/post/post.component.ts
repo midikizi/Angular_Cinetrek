@@ -29,8 +29,7 @@ export class PostFilmComponent implements OnInit{
       dateSortie: ['', Validators.required],
       duree: ['', Validators.required],
       photo: ['', Validators.required],
-      projections: ['', Validators.required],
-      categorie: ['', Validators.required],
+      category: ['', Validators.required],
     })
   }
 

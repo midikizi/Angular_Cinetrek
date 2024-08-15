@@ -1,22 +1,21 @@
 import { Place } from "./place";
 import { Projection } from "./projection";
+import { Salle } from "./salle";
 
 export class Ticket {
   id: number;
   nomClient: string;
   prix: number;
   codePayement: string;
-  reserve: boolean;
+  salle: Salle;
   place: Place;
-  projection: Projection;
 
   constructor(){
     this.id = 0;
     this.nomClient = '';
     this.prix = 0;
     this.codePayement = '';
-    this.reserve = false;
+    this.salle = new Salle();
     this.place = new Place();
-    this.projection = new Projection();
   }
 }

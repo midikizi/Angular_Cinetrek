@@ -26,7 +26,6 @@ export class PostTicketComponent implements OnInit{
       reserve: ['', Validators.required],
       place: ['', Validators.required],
       projection: ['', Validators.required],
-
     })
   }
 

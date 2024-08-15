@@ -7,7 +7,7 @@
 <div class="row align-items-center">
 <div class="col-sm-12">
   <div class="page-sub-header">
-    <h3 class="page-title">Ajout Films</h3>
+    <h3 class="page-title">Ajout Cinémas</h3>
     <!-- <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="students.html">Student</a></li>
       <li class="breadcrumb-item active">Add Students</li>
@@ -24,7 +24,7 @@
 <div class="card comman-shadow">
   <div class="card-body">
 
-    <form >
+    <form [formGroup]="postCinemaForm">
 
       <div class="row">
         <div class="col-12">
@@ -34,7 +34,7 @@
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Nom <span class="login-danger">*</span></label>
-            <input class="form-control" type="text" placeholder="Nom" formControlName="name">
+            <input class="form-control" type="text" placeholder="Nom" formControlName="nom">
           </div>
         </div>
 
@@ -47,15 +47,15 @@
 
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
-            <label >Latitude <span class="login-danger">*</span></label>
-            <input class="form-control" type="number" placeholder="latitude" formControlName="latitute">
+            <label >Longitude<span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="longitude" formControlName="longitude">
           </div>
         </div>
 
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
-            <label >Longitude <span class="login-danger">*</span></label>
-            <input class="form-control" type="number" placeholder="longitude" formControlName="longitude">
+            <label >Latitude <span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="latitude" formControlName="latitude">
           </div>
         </div>
 

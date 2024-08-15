@@ -5,14 +5,14 @@ export class Place {
   id: number;
   numero: number;
   prix : number;
-  salle: Salle;
-  tickets: Ticket[];
+  reservee: boolean;
+  libre: boolean;
 
   constructor(){
     this.id = 0;
     this.numero = 0;
     this.prix = 0;
-    this.salle = new Salle();
-    this.tickets = [];
+    this.reservee = false;
+    this.libre = false;
   }
 }

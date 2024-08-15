@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Categorie } from 'src/app/models/categorie';
 import { Cinema } from 'src/app/models/cinema';
 import { Ville } from 'src/app/models/ville';
 import { CinemaService } from 'src/app/service/cinema.service';
@@ -26,24 +25,24 @@ export class PostCinemaComponent implements OnInit{
 
   ngOnInit(){
     this.postCinemaForm = this.fb.group({
-      name: ['', Validators.required],
+      nom: ['', Validators.required],
       nombreSalle: ['', Validators.required],
-      latitute: ['', Validators.required],
       longitude: ['', Validators.required],
+      latitude: ['', Validators.required],
       altitude: ['', Validators.required],
   })
-    this.getVille();
+    // this.getVille();
   }
 
-  getVille() {
-    this.villeService.getAllVille().subscribe((data: Ville[])=>{
-      this.villes = data;
-      console.log(data);
-    },
-    (error)=>{
-      console.log("error",error)
-    });
-  }
+  // getVille() {
+  //   this.villeService.getAllVille().subscribe((data: Ville[])=>{
+  //     this.villes = data;
+  //     console.log(data);
+  //   },
+  //   (error)=>{
+  //     console.log("error",error)
+  //   });
+  // }
 
   postCinema(){
     console.log(this.postCinemaForm?.value);
