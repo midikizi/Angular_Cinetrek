@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpinterceportInterceptor } from './service/httpinterceport.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { HttpinterceportInterceptor } from './service/httpinterceport.intercepto
   ],
   providers: [
     provideHttpClient(),
-    {provide: HTTP_INTERCEPTORS, useClass: HttpinterceportInterceptor, multi:true},
+    // {provide: HTTP_INTERCEPTORS, useClass: HttpinterceportInterceptor, multi:true},
   ],
   bootstrap: [AppComponent]
 })

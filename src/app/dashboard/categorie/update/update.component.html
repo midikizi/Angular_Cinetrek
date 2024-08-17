@@ -24,7 +24,7 @@
 <div class="card comman-shadow">
   <div class="card-body">
 
-    <form [formGroup]="updateCategorieForm">
+    <form [formGroup]="updateCategorieForm" (ngSubmit)="updateCategorie()">
 
       <div class="row">
         <div class="col-12">
@@ -49,11 +49,11 @@
         </div>
         <div class="col-12">
           <div class="student-submit">
-            <button type="submit" class="btn btn-primary" (click)="updateCategorie()">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </div>
-    </form>
+    </form><!--  -->
   </div>
 </div>
 </div>

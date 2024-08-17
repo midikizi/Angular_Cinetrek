@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategorieService } from 'src/app/service/categorie.service';
@@ -11,7 +11,7 @@ import { CategorieService } from 'src/app/service/categorie.service';
 export class UpdateComponent implements OnInit{
 
   updateCategorieForm: FormGroup | any
-  id: number = this.activatedRoute.snapshot.params["id"];
+  id: string | any
 
   constructor(private activatedRoute: ActivatedRoute,
     private service: CategorieService,
@@ -19,18 +19,26 @@ export class UpdateComponent implements OnInit{
     private router: Router){}
 
   ngOnInit(){
+    this.CreateFrom(null);
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.getCategorieById();
+  }
+
+  CreateFrom(obj:any){
+
+    console.log(obj);
     this.updateCategorieForm = this.fb.group({
-      nom: ['',Validators.required],
-      description: ['',Validators.required],
-    }) 
+      nom: [obj? obj.nom:'',Validators.required],
+      description: [obj?obj.description:'',Validators.required],
+    })
   }
 
 
   getCategorieById(){
     this.service.getById(this.id).subscribe((res)=>{
       console.log(res);
-      this.updateCategorieForm.patchValue(res);
+      this.CreateFrom(res);
+      // this.updateCategorieForm.patchValue(res);
     })
   }
 
@@ -39,7 +47,7 @@ export class UpdateComponent implements OnInit{
     this.service.updateCategorie(this.id,this.updateCategorieForm.value).subscribe((res)=>{
       console.log(res);
         if(res.id != null){
-          this.router.navigateByUrl("/categorie");
+          this.router.navigate(['/home/categorie']);
         }
     });
   }

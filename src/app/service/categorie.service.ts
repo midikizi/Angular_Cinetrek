@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Categorie } from '../models/categorie';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategorieService {
-  private categorieUrl = 'http://localhost:8000/api/cinema/categorie/';
+  private categorieUrl = 'http://127.0.0.1:8000/api/cinema/categorie/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,7 +32,7 @@ export class CategorieService {
 
   updateCategorie(id:number, categorie:any):Observable<any>
   {
-    return this.httpClient.put(this.categorieUrl+id,categorie);
+    return this.httpClient.put(`${this.categorieUrl+id}/`,categorie);
   }
 
 }
