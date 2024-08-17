@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Film } from 'src/app/models/film';
+import { Categorie } from 'src/app/models/categorie';
+import { CategorieService } from 'src/app/service/categorie.service';
 import { FilmService } from 'src/app/service/film.service';
-import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-post',
@@ -12,13 +13,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PostFilmComponent implements OnInit{
   postFilmForm: FormGroup | any
-  films!: Film[];
   myDate: any;
+  categories!: Categorie[]
 
   constructor(private fb: FormBuilder,
     private router: Router,
     private service: FilmService,
-    // public dialogRef: MatDialogRef<PostFilmComponent>
+    private serviceCategorie: CategorieService,
   ) {}
 
   ngOnInit(){
@@ -28,27 +29,35 @@ export class PostFilmComponent implements OnInit{
       realisateur:['', Validators.required],
       dateSortie: ['', Validators.required],
       duree: ['', Validators.required],
-      photo: ['', Validators.required],
+      photo: [null, Validators.required],
       category: ['', Validators.required],
     })
+    this.getCategorie();
   }
 
-  // onSubmit() {
-  //   console.log(this.postFilmForm.value);
-  //   this.dialogRef.close();
-  // }
-
-  // onCancel() {
-  //   this.dialogRef.close();
-  // }
+  getCategorie(){
+    this.serviceCategorie.getAllCategorie().subscribe(
+      (data)=>{
+      this.categories=data.results;
+      console.log(this.categories);
+    },
+    (error)=>{
+      console.log(error)
+    });
+  }
 
   postFilm(){
+    console.log(this.postFilmForm.value)
     this.service.postFilm(this.postFilmForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
         this.router.navigateByUrl("/categorie");
       }
     })
+  }
+
+  onfileChange(event: any){
+      this.postFilmForm.value.photo = event.target.files[0];
   }
 
 }

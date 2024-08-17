@@ -1,5 +1,7 @@
 import { Film } from "./film";
 
+
+
 export class Seance {
   id: number;
   date: Date;

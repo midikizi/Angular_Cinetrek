@@ -24,7 +24,7 @@
 <div class="card comman-shadow">
   <div class="card-body">
 
-    <form [formGroup]="postFilmForm " (ngSubmit)="postFilm()">
+    <form [formGroup]="postFilmForm " (ngSubmit)="postFilm()" enctype="multipart/form-data">
       <div class="row">
         <div class="col-12">
           <h5 class="form-title student-info">Film Information <span><a href="javascript:;"><i class="feather-more-vertical">
@@ -33,45 +33,51 @@
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Titre <span class="login-danger">*</span></label>
-            <input class="form-control" type="text" placeholder="titre" >
+            <input class="form-control" type="text" placeholder="titre" formControlName="titre">
+          </div>
+        </div>
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Description <span class="login-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="description" formControlName="description">
           </div>
         </div>
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Réalisateur <span class="login-danger">*</span></label>
-            <input class="form-control" type="text" placeholder="Réalisateur" >
+            <input class="form-control" type="text" placeholder="Réalisateur" formControlName="realisateur">
           </div>
         </div>
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Categorie <span class="login-danger">*</span></label>
-            <select class="form-control select">
-              <option>categorie</option>
-              <option>Female</option>
-              <option>Male</option>
-              <option>Others</option>
+            <select class="form-control select" formControlName="category">
+              <ng-container *ngFor="let item of categories">
+                <option [value]="item.id">{{item.nom}}</option>
+              </ng-container>
               </select>
           </div>
         </div>
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms calendar-icon">
             <label >Date de sortie  <span class="login-danger">*</span></label>
-            <input class="form-control datetimepicker" type="date"   >
+            <input class="form-control datetimepicker" type="date" formControlName="dateSortie" >
           </div>
         </div>
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Durée </label>
-            <input class="form-control" type="text" placeholder="Durée du film" >
+            <input class="form-control" type="text" placeholder="Durée du film" formControlName="duree">
           </div>
         </div>
 
         <div class="col-12 col-sm-4">
           <div class="form-group students-up-files">
             <label>Upload  Photo (150px X 150px)</label>
-            <div class="uplod">
+            <div class="upload">
               <label class="file-upload image-upbtn mb-0">
-                Choose File <input type="file">
+                Choose File <input  type="file" (change)="onfileChange($event)">
+                <!--  -->
               </label>
             </div>
           </div>

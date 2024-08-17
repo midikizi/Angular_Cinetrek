@@ -1,4 +1,3 @@
-import { Film } from './film';
 
 export class Categorie {
   id: number;
