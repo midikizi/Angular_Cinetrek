@@ -46,24 +46,25 @@
         </div>
 
         <div class="col-12 col-sm-4">
-          <div class="form-group local-forms">
+          <div class="form-group local-forms" *ngIf="longitude">
             <label >Longitude<span class="login-danger">*</span></label>
-            <input class="form-control" type="number" placeholder="longitude" formControlName="longitude">
+            <input value="{{longitude}}" class="form-control" type="number" [(ngModel)]="longitude" readonly placeholder="longitude" formControlName="longitude">
           </div>
         </div>
 
-        <div class="col-12 col-sm-4">
+        <div class="col-12 col-sm-4" *ngIf="latitude">
           <div class="form-group local-forms">
             <label >Latitude <span class="login-danger">*</span></label>
-            <input class="form-control" type="number" placeholder="latitude" formControlName="latitute">
+            <input value="{{latitude}}" class="form-control" type="number" [(ngModel)]="latitude" readonly placeholder="latitude" formControlName="latitute">
           </div>
         </div>
 
         <div class="col-12 col-sm-4">
-          <div class="form-group local-forms">
+          <!-- <div class="form-group local-forms">
             <label >altitude <span class="login-danger">*</span></label>
             <input class="form-control" type="number" placeholder="altitude" formControlName="altitude">
-          </div>
+          </div> -->
+          <button type="submit" class="btn btn-info" (click)="getLocation()">Géolocalisation</button>
         </div>
 
         <div class="col-12 col-sm-4">

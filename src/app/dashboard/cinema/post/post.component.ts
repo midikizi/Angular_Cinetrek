@@ -12,6 +12,9 @@ import { VilleService } from 'src/app/service/ville.service';
   styleUrls: ['./post.component.css']
 })
 export class PostCinemaComponent implements OnInit{
+  latitude: number | null = null;
+  longitude: number | null = null;
+  error: string | null = null;
 
   postCinemaForm:FormGroup|any
   cinemas!: Cinema[];
@@ -24,6 +27,7 @@ export class PostCinemaComponent implements OnInit{
   ){}
 
   ngOnInit(){
+    this.getVille();
     this.postCinemaForm = this.fb.group({
       nom: ['', Validators.required],
       nombreSalle: ['', Validators.required],
@@ -32,8 +36,6 @@ export class PostCinemaComponent implements OnInit{
       altitude: ['', Validators.required],
       ville: ['', Validators.required],
   })
-
-    this.getVille();
   }
 
   getVille() {
@@ -55,6 +57,41 @@ export class PostCinemaComponent implements OnInit{
         this.router.navigate(['/home/cinema']);
       }
     })
+  }
+
+  getLocation(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => this.showPosition(position),
+        error => this.showError(error)
+      );
+    } else {
+      this.error = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  // Afficher la position
+  showPosition(position: GeolocationPosition): void {
+    this.latitude = position.coords.latitude;
+    this.longitude = position.coords.longitude;
+  }
+
+  // Afficher les erreurs de localisation
+  showError(error: GeolocationPositionError): void {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        this.error = "User denied the request for Geolocation.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        this.error = "Location information is unavailable.";
+        break;
+      case error.TIMEOUT:
+        this.error = "The request to get user location timed out.";
+        break;
+      // case error.UNKNOWN_ERROR:
+      //   this.error = "An unknown error occurred.";
+      //   break;
+    }
   }
 
 }
