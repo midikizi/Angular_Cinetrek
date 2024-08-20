@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Film } from 'src/app/models/film';
+import { FilmService } from 'src/app/service/film.service';
 import { ProjectionProjection } from 'src/app/service/projection.service';
 
 @Component({
@@ -12,22 +14,34 @@ export class UpdateProjectionComponent implements OnInit{
 
   updateProjectionForm: FormGroup | any
   id: number = this.activatedRoute.snapshot.params["id"];
+  films!: Film[];
 
   constructor(private activatedRoute: ActivatedRoute,
     private service: ProjectionProjection,
     private fb: FormBuilder,
-    private router: Router){}
+    private router: Router,
+    private filmService: FilmService){}
 
     ngOnInit(){
       this.getProjectionById();
+      this.getFilm();
       this.updateProjectionForm=this.fb.group({
-        dateProjection: ['', Validators.required],
-        prix: ['', Validators.required],
-        salle: ['', Validators.required],
-        film: ['', Validators.required],
-        tickets: ['', Validators.required],
-        seance: ['', Validators.required],
+      date: ['', Validators.required],
+      prix: ['', Validators.required],
+      heureDebut: ['', Validators.required],
+      film: ['', Validators.required],
       })
+    }
+
+    getFilm() {
+      this.filmService.getAllFilm().subscribe(
+        (data)=>{
+        this.films = data.results;
+        console.log(data.results);
+      },
+      (error)=>{
+        console.log("error",error)
+      });
     }
 
     getProjectionById(){
@@ -42,7 +56,7 @@ export class UpdateProjectionComponent implements OnInit{
       this.service.updateProjection(this.id,this.updateProjectionForm.value).subscribe((res)=>{
         console.log(res);
         if(res.id != null){
-          this.router.navigateByUrl("/projection");
+          this.router.navigate(['/home/projection']);
         }
       })
     }

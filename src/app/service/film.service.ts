@@ -10,14 +10,14 @@ import { Observable } from 'rxjs';
 export class FilmService {
 
   constructor(private httpClient: HttpClient) { }
-  private filmUrl = 'http://localhost:8000/api/cinema/film/'
+  private filmUrl = 'http://127.0.0.1:8000/api/cinema/film/'
 
   getAllFilm():Observable<any>{
-    return this.httpClient.get(this.filmUrl);
+    return this.httpClient.get<any>(this.filmUrl);
   }
 
   getById(id:number):Observable<any>{
-    return this.httpClient.get(this.filmUrl+id);
+    return this.httpClient.get<any>(this.filmUrl+id);
   }
 
   deleteFilm(id:number){
@@ -25,12 +25,11 @@ export class FilmService {
   }
 
   postFilm(film:any):Observable<any>{
-
     return this.httpClient.post(this.filmUrl,film);
   }
 
   updateFilm(id:number, film:any):Observable<any>{
-    return this.httpClient.put(this.filmUrl+id,film);
+    return this.httpClient.put(`${this.filmUrl+id}/`,film);
   }
 
   getFilmByTitre(titre: string): Observable<any> {

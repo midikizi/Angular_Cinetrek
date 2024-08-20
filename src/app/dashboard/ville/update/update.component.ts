@@ -21,12 +21,10 @@ export class UpdateVilleComponent implements OnInit{
     ngOnInit(){
       this.getVilleById();
       this.updateVilleForm = this.fb.group({
-        name:['', Validators.required],
+        nom:['', Validators.required],
         longitude:['', Validators.required],
-        latitude:['', Validators.required],
+        latitute:['', Validators.required],
         altitude: ['', Validators.required],
-        cinema: ['', Validators.required],
-  
       })
     }
 
@@ -42,7 +40,7 @@ export class UpdateVilleComponent implements OnInit{
       this.service.updateVille(this.id,this.updateVilleForm.value).subscribe((res)=>{
         console.log(res);
         if(res.id != null){
-          this.router.navigateByUrl("/ville");
+          this.router.navigate(['/home/ville']);
         }
       });
     }

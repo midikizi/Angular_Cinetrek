@@ -9,7 +9,7 @@ export class Cinema {
   latitute: number;
   altitude : number;
   // salles: Salle[];
-  // ville: Ville;
+  ville: number;
 
   constructor() {
     this.id = 0;
@@ -18,6 +18,6 @@ export class Cinema {
     this.longitude = 0;
     this.latitute = 0;
     this.altitude = 0;
-
+    this.ville = 0;
   }
 }

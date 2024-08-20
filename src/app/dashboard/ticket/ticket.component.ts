@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
+import { StockInfoService } from 'src/app/service/stock-info.service';
 import { TicketService } from 'src/app/service/ticket.service';
 
 @Component({
@@ -10,17 +11,23 @@ import { TicketService } from 'src/app/service/ticket.service';
 export class TicketComponent implements OnInit{
 
   tickets!: Ticket[];
+  user!: any;
 
-  constructor(private service: TicketService){}
+  constructor(private service: TicketService,
+    private stock:StockInfoService,
+  ){}
 
   ngOnInit() {
     this.getTicket();
+    this.user = this.stock.getuserinfo()
+    console.log(this.user)
   }
 
   getTicket() {
-    this.service.getAllTicket().subscribe((data: Ticket[])=>{
-      this.tickets = data;
-      console.log(data);
+    this.service.getAllTicket().subscribe(
+      (data)=>{
+      this.tickets = data.results;
+      console.log(data.results);
     },
     (error)=>{
       console.log("error")

@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component } from '@angular/core';
 import { Ville } from 'src/app/models/ville';
 import { VilleService } from 'src/app/service/ville.service';
 
@@ -17,9 +17,10 @@ export class VilleComponent {
     this.getVille();
   }
   getVille() {
-    this.service.getAllVille().subscribe((data: Ville[])=>{
-      this.villes = data;
-      console.log(data);
+    this.service.getAllVille().subscribe(
+      (data)=>{
+      this.villes = data.results;
+      console.log(data.results);
     },
     (error)=>{
       console.log("error")
@@ -27,9 +28,9 @@ export class VilleComponent {
   }
 
   deleteVille(id:number){
+    this.villes = this.villes.filter(obj=> obj.id !== id);
     this.service.deleteVille(id).subscribe((data)=>{
       console.log(data);
-      this.getVille();
     },
     (error)=>{
       console.log("error")

@@ -1,8 +1,6 @@
-import { User } from './../models/user';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -29,14 +27,14 @@ export class UserService {
   }
 
   logout(): void {
-    this.http.post<any>(this.logoutUrl, {}, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
+    this.http.post<any>(this.logoutUrl, {})
       .subscribe(() => {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');localStorage.removeItem('user');
       });
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('currentUser') !== null;
+    return localStorage.getItem('token') !== null;
   }
 
   // login(username: string, password: string): Observable<any> {
@@ -72,5 +70,5 @@ export class UserService {
   //       })
   //     );
   // }
- 
+
 }

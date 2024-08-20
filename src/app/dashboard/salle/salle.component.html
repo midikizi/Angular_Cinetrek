@@ -78,7 +78,7 @@
             <th>Nom</th>
             <th>Nombre Places</th>
             <th>Cinéma</th>
-            <th>Places</th>
+            <!-- <th>Places</th> -->
             <th class="text-end">Action</th>
           </tr>
         </thead>
@@ -92,14 +92,14 @@
             <td>PRE{{i+1}}</td>
             <td>{{item.nom}}</td>
             <td>{{item.nombrePlace}}</td>
-            <td>{{item.cinema}}</td>
-            <td>{{item.places}}</td>
+            <td>{{ getCinName(item.cinema) }}</td>
+            <!-- <td>{{item.places}}</td> -->
             <td class="text-end">
               <div class="actions ">
-                <button class="btn btn-sm bg-success-light me-2 " routerLink="/home/showFilm">
-                  <i class="feather-eye" ></i></button>
+                <button class="btn btn-sm bg-success-light me-2 " (click)="deleteSalle(item.id)">
+                  <i class="fa-regular fa-trash-can"></i></button>
 
-                <button class="btn btn-sm bg-danger-light" routerLink="/home/updateFilm">
+                <button class="btn btn-sm bg-danger-light" routerLink="/home/updateSalle/{{item.id}}">
                   <i class="feather-edit"></i></button>
 
               </div>

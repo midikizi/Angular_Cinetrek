@@ -18,14 +18,16 @@ export class PlaceComponent implements OnInit{
   }
 
   getPlace() {
-    this.service.getAllPlace().subscribe((data:Place[])=>{
-      this.places = data;
-      console.log(data);
+    this.service.getAllPlace().subscribe(
+      (data)=>{
+      this.places = data.results;
+      console.log(data.results);
     },
     (error) => {console.log("error")});
   }
 
   deletePlace(id:number){
+    this.places = this.places.filter(obj=> obj.id !== id);
     this.service.deletePlace(id).subscribe((data)=>{
       console.log(data);
       this.getPlace();

@@ -18,14 +18,13 @@ export class PostVilleComponent implements OnInit{
     private activatedRoute: ActivatedRoute,
     private service: VilleService,
     private router: Router) {}
-  
+
     ngOnInit(){
       this.postVilleForm = this.fb.group({
-        name:['', Validators.required],
+        nom:['', Validators.required],
         longitude:['', Validators.required],
-        latitude:['', Validators.required],
+        latitute:['', Validators.required],
         altitude: ['', Validators.required],
-        cinema: ['', Validators.required],
       })
     }
 
@@ -33,7 +32,7 @@ export class PostVilleComponent implements OnInit{
       this.service.postVille(this.postVilleForm.value).subscribe((res)=>{
         console.log(res);
         if(res.id != null){
-          this.router.navigateByUrl("/ville");
+          this.router.navigate(['/home/ville']);
         }
       })
     }

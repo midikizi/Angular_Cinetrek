@@ -33,9 +33,9 @@ export class CategorieComponent implements OnInit{
 
   deleteCategorie(id:number){
     this.categories = this.categories.filter(obj=> obj.id !== id);
+    
     this.service.deleteCategorie(id).subscribe((data)=>{
       console.log(data);
-
     },
     (error)=>{
       console.log("error")

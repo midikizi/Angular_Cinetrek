@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit{
 
 errorMessage: string = '';
 
-  constructor(private authService: UserService, 
+  constructor(private authService: UserService,
     private router: Router,
     private fb: FormBuilder,
   ) { }
@@ -34,12 +34,17 @@ errorMessage: string = '';
 
   register(): void {
     console.log(this.registerForm?.value)
-    if (this.registerForm.userType === 'gerant') {
+    // if(this.registerForm.value.userType == 'gerant'){
+    //   console.log("gerant")
+    // }else{
+    //   console.log("client")
+    // }
+    if (this.registerForm.value.userType ==  'gerant') {
       this.authService.registerGerant(this.registerForm.value).subscribe(
         (res)=>{
         console.log(res);
         if(res.id!=null){
-          this.router.navigateByUrl("");
+          this.router.navigate(['/login']);
         }
       },
       (error)=>{

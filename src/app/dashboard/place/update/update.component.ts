@@ -22,8 +22,8 @@ export class UpdatePlaceComponent implements OnInit{
     this.updatePlaceForm = this.fb.group({
       numero:['', Validators.required],
       prix:['', Validators.required],
-      salle:['', Validators.required],
-      tickets: ['', Validators.required],
+      libre:[false],
+      reservee: [false],
     })
   }
 
@@ -39,7 +39,7 @@ export class UpdatePlaceComponent implements OnInit{
     this.service.updatePlace(this.id,this.updatePlaceForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/place");
+        this.router.navigate(['/home/place']);
       }
     });
   }

@@ -20,21 +20,21 @@
 
 <div class="student-group-form">
 <div class="row">
-<div class="col-lg-3 col-md-6">
+<!-- <div class="col-lg-3 col-md-6">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Search by ID ...">
   </div>
-</div>
+</div> -->
 <div class="col-lg-3 col-md-6">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Search by Name ...">
   </div>
 </div>
-<div class="col-lg-4 col-md-6">
+<!-- <div class="col-lg-4 col-md-6">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Search by Phone ...">
   </div>
-</div>
+</div> -->
 <div class="col-lg-2">
   <div class="search-student-btn">
     <button type="btn" class="btn btn-primary">Search</button>
@@ -81,6 +81,7 @@
             <th>Longitude</th>
             <th>Altitude</th>
             <th>Latitude</th>
+            <th>Ville</th>
             <th class="text-end">Action</th>
           </tr>
         </thead>
@@ -97,11 +98,12 @@
 						<td>{{item.longitude}}</td>
 						<td>{{item.altitude}}</td>
 						<td>{{item.latitute}}</td>
+						<td>{{ getVilleName(item.ville) }}</td>
             <td class="text-end">
               <div class="actions ">
-                <a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
-                  <i class="feather-eye"></i>
-                </a>
+                <button href="javascript:;" class="btn btn-sm bg-success-light me-2 "(click)="deleteCinema(item.id)">
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
                 <button routerLink="/home/updateCinema/{{item.id}}" class="btn btn-sm bg-danger-light">
                   <i class="feather-edit"></i>
                 </button>

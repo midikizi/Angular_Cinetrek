@@ -28,21 +28,24 @@ export class PostCinemaComponent implements OnInit{
       nom: ['', Validators.required],
       nombreSalle: ['', Validators.required],
       longitude: ['', Validators.required],
-      latitude: ['', Validators.required],
+      latitute: ['', Validators.required],
       altitude: ['', Validators.required],
+      ville: ['', Validators.required],
   })
-    // this.getVille();
+
+    this.getVille();
   }
 
-  // getVille() {
-  //   this.villeService.getAllVille().subscribe((data: Ville[])=>{
-  //     this.villes = data;
-  //     console.log(data);
-  //   },
-  //   (error)=>{
-  //     console.log("error",error)
-  //   });
-  // }
+  getVille() {
+    this.villeService.getAllVille().subscribe(
+      (data)=>{
+      this.villes = data.results;
+      console.log(data.results);
+    },
+    (error)=>{
+      console.log("error")
+    });
+  }
 
   postCinema(){
     console.log(this.postCinemaForm?.value);

@@ -53,13 +53,13 @@
     <div class="page-header">
       <div class="row align-items-center">
         <div class="col">
-          <h3 class="page-title">List des Projection</h3>
+          <h3 class="page-title">List des Projections</h3>
         </div>
         <div class="col-auto text-end float-end ms-auto download-grp">
-          <a href="students.html" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
-          <a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
+          <a routerLink="/home/projection" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
+          <!-- <a routerLink="/home/gridFilm"  class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a> -->
           <!-- <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a> -->
-          <a routerLink="/home/postProjection" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+          <a routerLink="/home/postProjection"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i></a>
         </div>
       </div>
     </div>
@@ -77,7 +77,8 @@
             <th>ID</th>
             <th>Date</th>
             <th>Prix</th>
-            <th>Film</th>
+            <th>Heure de début</th>
+            <th>film</th>
             <th class="text-end">Action</th>
           </tr>
         </thead>
@@ -90,18 +91,22 @@
             </td>
             <td>PRE{{i+1}}</td>
             <td>{{item.date}}</td>
-						<td>{{item.prix}}</td>
-						<!-- <td>{{item.film}}</td> -->
-            <td class="text-end">
+            <td>{{item.prix}}</td>
+            <td>{{item.heureDebut}}</td>
+            <td>{{ getFilmName(item.film) }}</td>
+            <td>
               <div class="actions ">
-                <a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
-                  <i class="feather-eye"></i>
-                </a>
-                <a href="edit-student.html" class="btn btn-sm bg-danger-light">
-                  <i class="feather-edit"></i>
-                </a>
+                <!-- <button class="btn btn-sm bg-success-light me-2 " routerLink="/home/showFilm">
+                  <i class="feather-eye" ></i></button> -->
+                <button class="btn btn-sm bg-success-light me-2 " (click)="deleteProjection(item.id)">
+                  <i class="fa-regular fa-trash-can"></i></button>
+
+                <button class="btn btn-sm bg-danger-light" routerLink="/home/updateProjection/{{item.id}}">
+                  <i class="feather-edit"></i></button>
+
               </div>
             </td>
+
           </tr>
         </tbody>
       </table>

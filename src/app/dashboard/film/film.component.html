@@ -1,126 +1,134 @@
 <!-- Page Wrapper -->
-<div class="page-wrapper">
-  <div class="content container-fluid">
+<ng-container >
+  <div class="page-wrapper">
+    <div class="content container-fluid">
 
-<!-- Page Header -->
-<div class="page-header">
-<div class="row">
-<div class="col-sm-12">
-  <div class="page-sub-header">
-    <h3 class="page-title">Cinetrek</h3>
-    <!-- <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="students.html">Student</a></li>
-      <li class="breadcrumb-item active">All Students</li>
-    </ul> -->
+  <!-- Page Header -->
+  <div class="page-header">
+  <div class="row">
+  <div class="col-sm-12">
+    <div class="page-sub-header">
+      <h3 class="page-title">Cinetrek</h3>
+      <!-- <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+        <li class="breadcrumb-item active">All Students</li>
+      </ul> -->
+    </div>
   </div>
-</div>
-</div>
-</div>
-<!-- /Page Header -->
+  </div>
+  </div>
+  <!-- /Page Header -->
 
-<div class="student-group-form">
-<div class="row">
-<div class="col-lg-3 col-md-6">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search by ID ...">
+  <div class="student-group-form">
+  <div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by ID ...">
+    </div>
   </div>
-</div>
-<div class="col-lg-3 col-md-6">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search by Name ...">
+  <div class="col-lg-3 col-md-6">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by Name ...">
+    </div>
   </div>
-</div>
-<div class="col-lg-4 col-md-6">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search by Phone ...">
+  <div class="col-lg-4 col-md-6">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by Phone ...">
+    </div>
   </div>
-</div>
-<div class="col-lg-2">
-  <div class="search-student-btn">
-    <button type="btn" class="btn btn-primary">Search</button>
+  <div class="col-lg-2">
+    <div class="search-student-btn">
+      <button type="btn" class="btn btn-primary">Search</button>
+    </div>
   </div>
-</div>
-</div>
-</div>
+  </div>
+  </div>
 
-<div class="row">
-<div class="col-sm-12">
+  <div class="row">
+  <div class="col-sm-12">
 
-<div class="card card-table comman-shadow">
-  <div class="card-body">
+  <div class="card card-table comman-shadow">
+    <div class="card-body">
 
-    <!-- Page Header -->
-    <div class="page-header">
-      <div class="row align-items-center">
-        <div class="col">
-          <h3 class="page-title">List Films</h3>
-        </div>
-        <div class="col-auto text-end float-end ms-auto download-grp">
-          <a routerLink="/home/film" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
-          <a routerLink="/home/gridFilm"  class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
-          <!-- <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a> -->
-          <a routerLink="/home/postFilm"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i></a>
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-center">
+          <div class="col">
+            <h3 class="page-title">List Films</h3>
+          </div>
+          <div class="col-auto text-end float-end ms-auto download-grp">
+            <a routerLink="/home/film" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
+            <!-- <a routerLink="/home/gridFilm"  class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a> -->
+            <!-- <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a> -->
+            <a routerLink="/home/postFilm"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fas fa-plus"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- /Page Header -->
+      <!-- /Page Header -->
 
-    <div class="table-responsive">
-      <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
-        <thead class="student-thread">
-          <tr>
-            <th>
-              <div class="form-check check-tables">
-                <input class="form-check-input" type="checkbox"  value="something">
-              </div>
-            </th>
-            <th>ID</th>
-            <th>Image</th>
-            <th>Titre</th>
-            <th>Durée</th>
-            <th>Réalisateur</th>
-            <th>Description</th>
-            <th>Date de sortie</th>
-            <th>Catégorie</th>
-            <th class="text-end">Action</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let item of films, let i=index">
-          <tr>
-            <td>
-              <div class="form-check check-tables">
-                <input class="form-check-input" type="checkbox"  value="something">
-              </div>
-            </td>
-            <td>PRE{{i+1}}</td>
-            <td>{{item.photo}}</td>
-            <td>{{item.titre}}</td>
-            <td>{{item.duree}}</td>
-            <td>{{item.realisateur}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.dateSortie}}</td>
-            <td>{{item.category}}</td>
-            <td class="text-end">
-              <div class="actions ">
-                <button class="btn btn-sm bg-success-light me-2 " routerLink="/home/showFilm">
-                  <i class="feather-eye" ></i></button>
+      <div class="table-responsive">
+        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+          <thead class="student-thread">
+            <tr>
+              <th>
+                <div class="form-check check-tables">
+                  <input class="form-check-input" type="checkbox"  value="something">
+                </div>
+              </th>
+              <th>ID</th>
+              <th>Image</th>
+              <th>Titre</th>
+              <th>Durée</th>
+              <th>Réalisateur</th>
+              <th>Description</th>
+              <th>Date de sortie</th>
+              <th>Catégorie</th>
+              <th class="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of films, let i=index">
+            <tr>
+              <td>
+                <div class="form-check check-tables">
+                  <input class="form-check-input" type="checkbox"  value="something">
+                </div>
+              </td>
+              <td>PRE{{i+1}}</td>
+              <td>{{item.photo}}</td>
+              <td>{{item.titre}}</td>
+              <td>{{item.duree}}</td>
+              <td>{{item.realisateur}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.dateSortie}}</td>
+              <td>{{ getCategorieName(item.category) }}</td>
+              <td class="text-end">
+                <div class="actions ">
+                  <!-- <button class="btn btn-sm bg-success-light me-2 " routerLink="/home/showFilm">
+                    <i class="feather-eye" ></i></button> -->
 
-                <button class="btn btn-sm bg-danger-light" routerLink="/home/updateFilm">
-                  <i class="feather-edit"></i></button>
+                  <button class="btn btn-sm bg-success-light me-2" (click)="deleteFilm(item.id)">
+                    <i class="fa-regular fa-trash-can"></i></button>
 
-              </div>
-            </td>
+                  <button class="btn btn-sm bg-danger-light" routerLink="/home/updateFilm/{{item.id}}">
+                    <i class="feather-edit"></i></button>
 
-          </tr>
-        </tbody>
-      </table>
+                </div>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
 
 
-</div>
+  </div>
+ </ng-container>
+
+
+
 <!-- /Page Wrapper -->

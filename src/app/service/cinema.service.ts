@@ -29,10 +29,10 @@ export class CinemaService {
   }
 
   updateCinema(id:number, cinema:any):Observable<any>{
-    return this.httpClient.put(this.cinemaUrl+id,cinema);
+    return this.httpClient.put(`${this.cinemaUrl+id}/`,cinema);
   }
 
-  getCinemaByName(name: string): Observable<any> 
+  getCinemaByName(name: string): Observable<any>
   {
     return this.httpClient.get(this.cinemaUrl+name);
   }

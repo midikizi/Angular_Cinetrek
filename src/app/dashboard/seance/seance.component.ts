@@ -17,9 +17,10 @@ export class SeanceComponent implements OnInit{
   }
 
   getSeance() {
-    this.service.getAllSeance().subscribe((data:Seance[])=>{
-      this.Seances=data;
-      console.log(data);
+    this.service.getAllSeance().subscribe(
+      (data)=>{
+      this.Seances=data.results;
+      console.log(data.results);
     },
     (error)=>{
       console.log("error")
@@ -27,9 +28,9 @@ export class SeanceComponent implements OnInit{
   }
 
   deleteSeance(id:number){
+    this.Seances = this.Seances.filter(obj=> obj.id !== id);
     this.service.deleteSeance(id).subscribe((data)=>{
       console.log(data);
-      this.getSeance();
     },
     (error)=>{
       console.log("error")

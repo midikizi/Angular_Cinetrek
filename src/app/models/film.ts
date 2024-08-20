@@ -1,5 +1,6 @@
 
 export class Film {
+    id:number
     titre: string;
     duree: Date;
     realisateur: string;
@@ -10,6 +11,7 @@ export class Film {
 
 
     constructor() {
+      this.id = 0;
       this.titre = "";
       this.duree = new Date();
       this.realisateur = "";

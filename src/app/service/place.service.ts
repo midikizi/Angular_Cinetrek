@@ -12,23 +12,23 @@ export class PlaceService {
   constructor(private httpClient: HttpClient) { }
 
   getAllPlace():Observable<any>{
-    return this.httpClient.get(this.placeUrl);
+    return this.httpClient.get<any>(this.placeUrl);
   }
 
   getById(id:number):Observable<any>{
-    return this.httpClient.get(this.placeUrl+id);
+    return this.httpClient.get<any>(this.placeUrl+id);
   }
 
   deletePlace(id: number){
     return this.httpClient.delete(this.placeUrl+id);
   }
 
-  postPlace(film:any):Observable<any>{
-    return this.httpClient.post(this.placeUrl,film)
+  postPlace(place:any):Observable<any>{
+    return this.httpClient.post(this.placeUrl,place)
   }
 
-  updatePlace(id:number, film:any):Observable<any>{
-    return this.httpClient.put(this.placeUrl+id,film)
+  updatePlace(id:number, place:any):Observable<any>{
+    return this.httpClient.put(`${this.placeUrl+id}/`,place)
   }
 
 }

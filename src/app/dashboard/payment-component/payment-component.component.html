@@ -1,0 +1,39 @@
+<!-- payment.component.html -->
+
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+  <h2>Effectuer un paiement</h2>
+  <form #paymentForm="ngForm" (ngSubmit)="makePayment()">
+    <!-- <div style="margin-bottom: 15px;">
+      <label for="token">Token (Clé API):</label>
+      <input type="text" id="token" required [(ngModel)]="paymentData.token" name="token" style="width: 100%; padding: 8px;"/>
+    </div> -->
+    <div style="margin-bottom: 15px;">
+      <label for="amount">Montant:</label>
+      <input type="number" id="amount" required [(ngModel)]="paymentData.amount" name="amount" style="width: 100%; padding: 8px;"/>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="identifier">Identifiant:</label>
+      <input type="text" id="identifier" required [(ngModel)]="paymentData.identifier" name="identifier" style="width: 100%; padding: 8px;"/>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="description">Description:</label>
+      <input type="text" id="description" [(ngModel)]="paymentData.description" name="description" style="width: 100%; padding: 8px;"/>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="phone">Téléphone:</label>
+      <input type="tel" id="phone" [(ngModel)]="paymentData.phone" name="phone" style="width: 100%; padding: 8px;"/>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <label for="network">Réseau:</label>
+      <select [(ngModel)]="paymentData.network" name="network" style="width: 100%; padding: 8px;">
+        <ng-container >
+          <option>TOGOCEL</option>
+          <option>MOOV</option>
+        </ng-container>
+        </select>
+    </div>
+    <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Payer
+    </button>
+  </form>
+</div>

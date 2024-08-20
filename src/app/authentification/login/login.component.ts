@@ -13,7 +13,7 @@ export class LoginComponent {
     password:""
   }
   errorMessage:string="";
- 
+
 
   constructor(private authService: UserService, private router: Router) { }
 
@@ -23,7 +23,8 @@ export class LoginComponent {
       (rep)=>{
         console.log(rep);
         localStorage.setItem('token', rep.token);
-        this.router.navigateByUrl("home");
+        localStorage.setItem('user', JSON.stringify(rep.user));
+        this.router.navigateByUrl("/home/acceuil");
       },
       (error)=>{
         this.errorMessage = "Erreur de connexion"

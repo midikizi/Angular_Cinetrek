@@ -1,1 +1,94 @@
-<p>post works!</p>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+<!-- Page Header -->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col-sm-12">
+  <div class="page-sub-header">
+    <h3 class="page-title">Ajout Ville</h3>
+    <!-- <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+      <li class="breadcrumb-item active">Add Students</li>
+    </ul> -->
+  </div>
+</div>
+</div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+<div class="col-sm-12">
+
+<div class="card comman-shadow">
+  <div class="card-body">
+
+    <form [formGroup]="postVilleForm">
+
+      <div class="row">
+        <div class="col-12">
+          <h5 class="form-title student-info">Informations Cinema<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nom <span class="login-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="Nom" formControlName="nom">
+          </div>
+        </div>
+
+        <!-- <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nombre de salle <span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="Nombre" formControlName="nombreSalle">
+          </div>
+        </div> -->
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Longitude<span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="longitude" formControlName="longitude">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Latitude <span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="latitude" formControlName="latitute">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >altitude <span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="altitude" formControlName="altitude">
+          </div>
+        </div>
+
+        <!-- <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Ville <span class="login-danger">*</span></label>
+            <select class="form-control select" formControlName="ville">
+              <ng-container *ngFor="let item of villes">
+                <option [value]="item.id">{{item.nom}}</option>
+              </ng-container>
+              </select>
+          </div>
+        </div> -->
+
+        <div class="col-12">
+          <div class="student-submit">
+            <button type="submit" class="btn btn-primary" (click)="postVille()">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /Page Wrapper -->

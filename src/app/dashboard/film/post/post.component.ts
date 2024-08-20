@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Categorie } from 'src/app/models/categorie';
+import { Film } from 'src/app/models/film';
 import { CategorieService } from 'src/app/service/categorie.service';
 import { FilmService } from 'src/app/service/film.service';
 
@@ -15,6 +16,7 @@ export class PostFilmComponent implements OnInit{
   postFilmForm: FormGroup | any
   myDate: any;
   categories!: Categorie[]
+  films!: Film[];
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -51,7 +53,7 @@ export class PostFilmComponent implements OnInit{
     this.service.postFilm(this.postFilmForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/categorie");
+        this.router.navigate(['/home/film']);
       }
     })
   }
@@ -60,4 +62,5 @@ export class PostFilmComponent implements OnInit{
       this.postFilmForm.value.photo = event.target.files[0];
   }
 
+  
 }

@@ -1,1 +1,73 @@
-<p>update works!</p>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+<!-- Page Header -->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col-sm-12">
+  <div class="page-sub-header">
+    <h3 class="page-title">Ajout de Salles</h3>
+    <!-- <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+      <li class="breadcrumb-item active">Add Students</li>
+    </ul> -->
+  </div>
+</div>
+</div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+<div class="col-sm-12">
+
+<div class="card comman-shadow">
+  <div class="card-body">
+
+    <form [formGroup]="updateSalleForm">
+
+      <div class="row">
+        <div class="col-12">
+          <h5 class="form-title student-info">Informations Salles<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nom <span class="login-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="Nom" formControlName="nom">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nombre de Place <span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="Nombre" formControlName="nombrePlace">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Cinema<span class="login-danger">*</span></label>
+            <select class="form-control select" formControlName="cinema">
+              <ng-container *ngFor="let item of cinemas">
+                <option [value]="item.id">{{item.nom}}</option>
+              </ng-container>
+              </select>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="student-submit">
+            <button type="submit" class="btn btn-primary" (click)="updateSalle()">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /Page Wrapper -->

@@ -1,1 +1,77 @@
-<p>post works!</p>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+<!-- Page Header -->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col-sm-12">
+  <div class="page-sub-header">
+    <h3 class="page-title">Ajout Projection</h3>
+  </div>
+</div>
+</div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+<div class="col-sm-12">
+
+<div class="card comman-shadow">
+  <div class="card-body">
+
+    <form [formGroup]="postProjectionForm">
+
+      <div class="row">
+        <div class="col-12">
+          <h5 class="form-title student-info">Informations Projection<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Date <span class="login-danger">*</span></label>
+            <input class="form-control" type="date" placeholder="date" formControlName="date">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Prix<span class="login-danger">*</span></label>
+            <input class="form-control" type="number" placeholder="prix" formControlName="prix">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Heure Début <span class="login-danger">*</span></label>
+            <input class="form-control" type="datetime-local" placeholder="heure de début" formControlName="heureDebut">
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Film <span class="login-danger">*</span></label>
+            <select class="form-control select" formControlName="film">
+              <ng-container *ngFor="let item of films">
+                <option [value]="item.id">{{item.titre}}</option>
+              </ng-container>
+              </select>
+          </div>
+        </div>
+
+
+        <div class="col-12">
+          <div class="student-submit">
+            <button type="submit" class="btn btn-primary" (click)="postProjection()">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /Page Wrapper -->

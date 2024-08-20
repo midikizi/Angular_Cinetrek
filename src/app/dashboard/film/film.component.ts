@@ -4,6 +4,8 @@ import { Film } from 'src/app/models/film';
 import { FilmService } from 'src/app/service/film.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PostFilmComponent } from './post/post.component';
+import { StockInfoService } from 'src/app/service/stock-info.service';
+import { CategorieService } from 'src/app/service/categorie.service';
 
 
 @Component({
@@ -15,24 +17,30 @@ export class FilmComponent implements OnInit{
 
   films!: Film[];
   categorie: Film | any;
+  user!: any;
+  categories!: Categorie[];
 
   constructor(private service:FilmService,
-    // public dialog: MatDialog
-  ){}
+    private stock:StockInfoService,
+    private serviceCat: CategorieService){}
 
   ngOnInit() {
     this.getFilm();
+    this.getCategorie();
+    this.user = this.stock.getuserinfo()
+    console.log(this.user)
   }
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(PostFilmComponent, {
-  //     width: '250px'
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
+  getCategorie(){
+    this.serviceCat.getAllCategorie().subscribe(
+      (data)=>{
+      this.categories=data.results;
+      console.log(data.results);
+    },
+    (error)=>{
+      console.log("error", error)
+    });
+  }
 
   getFilm() {
     this.service.getAllFilm().subscribe(
@@ -46,12 +54,17 @@ export class FilmComponent implements OnInit{
   }
 
   deleteFilm(id:number){
+    this.films = this.films.filter(obj=> obj.id !== id);
     this.service.deleteFilm(id).subscribe((data)=>{
       console.log(data);
-      this.getFilm();
     },(error)=>{
       console.log("error");
     });
+  }
+
+  getCategorieName(id: number): string {
+    const cat = this.categories.find(v => v.id === id);console.log(id,cat);
+    return cat ? cat.nom : 'Catégorie inconnue';
   }
 
 }

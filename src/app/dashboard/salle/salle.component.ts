@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Cinema } from 'src/app/models/cinema';
 import { Salle } from 'src/app/models/salle';
+import { CinemaService } from 'src/app/service/cinema.service';
 import { SalleService } from 'src/app/service/salle.service';
 
 @Component({
@@ -9,11 +11,25 @@ import { SalleService } from 'src/app/service/salle.service';
 })
 export class SalleComponent implements OnInit{
   Salles!: Salle[];
+  cinemas: Cinema[] = [];
 
-  constructor(private service: SalleService){}
+
+  constructor(private service: SalleService,private serviceCin: CinemaService,){}
 
   ngOnInit(){
     this.getSalle();
+    this.getCinema();
+  }
+
+  getCinema(){
+    this.serviceCin.getAllCinema().subscribe(
+      (data)=>{
+      this.cinemas=data.results;
+      console.log(data.results);
+    },
+    (error)=>{
+      console.log("error", error)
+    });
   }
 
   getSalle() {
@@ -24,13 +40,18 @@ export class SalleComponent implements OnInit{
     },(error)=>{console.log("error",error)});
   }
 
-  deleteProjection(id:number){
+  deleteSalle(id:number){
+    this.Salles = this.Salles.filter(obj=> obj.id !== id);
     this.service.deleteSalle(id).subscribe((data)=>{
       console.log(data);
-      this.getSalle();
     },(error)=>{
       console.log("error",error);
     });
+  }
+
+  getCinName(id: number): string {
+    const cat = this.cinemas.find(v => v.id === id);console.log(id,cat);
+    return cat ? cat.nom : 'Catégorie inconnue';
   }
 
 }

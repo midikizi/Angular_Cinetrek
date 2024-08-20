@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Place } from 'src/app/models/place';
@@ -22,8 +22,8 @@ export class PostPlaceComponent implements OnInit{
     this.postPlaceForm = this.fb.group({
       numero:['', Validators.required],
       prix:['', Validators.required],
-      salle:['', Validators.required],
-      tickets: ['', Validators.required],
+      libre:[false],
+      reservee: [false],
     })
   }
 
@@ -32,7 +32,7 @@ export class PostPlaceComponent implements OnInit{
     this.service.postPlace(this.postPlaceForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/place");
+        this.router.navigate(['/home/place']);
       }
     })
   }

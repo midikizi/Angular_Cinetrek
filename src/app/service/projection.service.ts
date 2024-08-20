@@ -28,6 +28,6 @@ export class ProjectionProjection {
   }
 
   updateProjection(id:number, projection:any):Observable<any>{
-    return this.httpClient.put(this.projectionUrl+id,projection);
+    return this.httpClient.put(`${this.projectionUrl+id}/`,projection);
   }
 }

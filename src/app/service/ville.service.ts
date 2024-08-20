@@ -7,16 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VilleService {
-  private villeUrl = 'http://localhost:8000/api/cinema/ville/';
+  private villeUrl = 'http://127.0.0.1:8000/api/cinema/ville/';
 
   constructor(private httpClient: HttpClient) { }
 
   getAllVille():Observable<any>{
-    return this.httpClient.get(this.villeUrl);
+    return this.httpClient.get<any>(this.villeUrl);
   }
 
   getById(id:number):Observable<any>{
-    return this.httpClient.get(this.villeUrl+id);
+    return this.httpClient.get<any>(this.villeUrl+id);
   }
 
   deleteVille(id: number){
@@ -28,7 +28,7 @@ export class VilleService {
   }
 
   updateVille(id:number, ville:any):Observable<any>{
-    return this.httpClient.put(this.villeUrl+id,ville);
+    return this.httpClient.put(`${this.villeUrl+id}/`,ville);
   }
-  
+
 }

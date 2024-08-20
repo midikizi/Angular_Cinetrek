@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SalleService {
-  private salleUrl = 'http://localhost:8000/api/cinema/salle/';
+  private salleUrl = 'http://127.0.0.1:8000/api/cinema/salle/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,6 +28,6 @@ export class SalleService {
   }
 
   updateSalle(id:number, salle:any):Observable<any>{
-    return this.httpClient.put(this.salleUrl+id,salle);
+    return this.httpClient.put(`${this.salleUrl+id}/`,salle);
   }
 }

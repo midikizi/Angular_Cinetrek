@@ -1,6 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cinema } from 'src/app/models/cinema';
+import { Ville } from 'src/app/models/ville';
 import { CinemaService } from 'src/app/service/cinema.service';
+import { VilleService } from 'src/app/service/ville.service';
 
 @Component({
   selector: 'app-cinema',
@@ -9,13 +11,29 @@ import { CinemaService } from 'src/app/service/cinema.service';
 })
 export class CinemaComponent implements OnInit{
   cinemas!:Cinema[];
+  villes!: Ville[];
   cinema: Cinema | undefined;
 
   constructor(
-    private service: CinemaService,){}
+    private service: CinemaService,
+    private villeService: VilleService) { }
   ngOnInit() {
     this.getCinema();
+    this.getVille();
   }
+
+  getVille() {
+    this.villeService.getAllVille().subscribe(
+      (data)=>{
+      this.villes = data.results;
+      console.log(data.results);
+    },
+    (error)=>{
+      console.log("error")
+    });
+
+  }
+
 
   getCinema(){
     this.service.getAllCinema().subscribe(
@@ -29,19 +47,18 @@ export class CinemaComponent implements OnInit{
   }
 
   deleteCinema(id:number){
+    this.cinemas = this.cinemas.filter(obj=> obj.id !== id);
     this.service.deleteCinema(id).subscribe((data)=>{
       console.log(data);
-      this.getCinema();
     },
     (error)=>{
       console.log("error", error)
     });
   }
 
-  // getByName(name:string){
-  //   this.service.getCinemaByName().subscribe((data:Cinema[])=>{
-  //     this.noms=data;
-  //   })
-  // }
+  getVilleName(id: number): string {
 
+    const ville = this.villes.find(v => v.id === id);console.log(id,ville);
+    return ville ? ville.nom : 'Ville inconnue';
+  }
 }
