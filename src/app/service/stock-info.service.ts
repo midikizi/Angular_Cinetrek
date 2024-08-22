@@ -9,8 +9,7 @@ export class StockInfoService {
 
 
 
-  getuserinfo():string
-  {
+  getuserinfo():string{
     return JSON.parse(localStorage.getItem('user')!)
   }
 
