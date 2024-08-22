@@ -32,8 +32,7 @@ export class PostTicketComponent implements OnInit{
   ngOnInit(){
     this.getPlace();
     this.getSalle();
-    this.user = this.stock.getuserinfo()
-    console.log(this.user)
+    this.getUserInfo(); 
     this.postTicketForm = this.fb.group({
       nomClient:['', Validators.required],
       prix:['', Validators.required],
@@ -68,6 +67,11 @@ export class PostTicketComponent implements OnInit{
       console.log(data.results);
     },
     (error) => {console.log("error")});
+  }
+
+  getUserInfo(): void {
+    this.user = this.stock.getuserinfo();  // Appel de la méthode du service
+    console.log(this.user);
   }
 
 }

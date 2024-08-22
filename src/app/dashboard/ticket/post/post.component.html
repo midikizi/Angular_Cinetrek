@@ -34,13 +34,19 @@
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
             <label >Nom du client <span class="login-danger">*</span></label>
-            <select class="form-control select" formControlName="nonClient">
+            <select class="form-control select" formControlName="nomClient">
               <ng-container >
                 <option [value]="user.id">{{user.last_name}}</option>
               </ng-container>
               </select>
           </div>
         </div>
+        <!-- <div class="col-12 col-sm-4">
+          <div class="form-group local-forms">
+            <label >Nom du client<span class="login-danger">*</span></label>
+            <input class="form-control" type="text" placeholder="non client" formControlName="nomClient">
+          </div>
+        </div> -->
 
         <div class="col-12 col-sm-4">
           <div class="form-group local-forms">
