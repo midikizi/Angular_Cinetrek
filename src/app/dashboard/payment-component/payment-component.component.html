@@ -1,39 +1,88 @@
-<!-- payment.component.html -->
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
 
-<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
-  <h2>Effectuer un paiement</h2>
-  <form #paymentForm="ngForm" (ngSubmit)="makePayment()">
-    <!-- <div style="margin-bottom: 15px;">
-      <label for="token">Token (Clé API):</label>
-      <input type="text" id="token" required [(ngModel)]="paymentData.token" name="token" style="width: 100%; padding: 8px;"/>
-    </div> -->
-    <div style="margin-bottom: 15px;">
-      <label for="amount">Montant:</label>
-      <input type="number" id="amount" required [(ngModel)]="paymentData.amount" name="amount" style="width: 100%; padding: 8px;"/>
-    </div>
-    <div style="margin-bottom: 15px;">
-      <label for="identifier">Identifiant:</label>
-      <input type="text" id="identifier" required [(ngModel)]="paymentData.identifier" name="identifier" style="width: 100%; padding: 8px;"/>
-    </div>
-    <div style="margin-bottom: 15px;">
-      <label for="description">Description:</label>
-      <input type="text" id="description" [(ngModel)]="paymentData.description" name="description" style="width: 100%; padding: 8px;"/>
-    </div>
-    <div style="margin-bottom: 15px;">
-      <label for="phone">Téléphone:</label>
-      <input type="tel" id="phone" [(ngModel)]="paymentData.phone" name="phone" style="width: 100%; padding: 8px;"/>
-    </div>
-    <div style="margin-bottom: 15px;">
-      <label for="network">Réseau:</label>
-      <select [(ngModel)]="paymentData.network" name="network" style="width: 100%; padding: 8px;">
-        <ng-container >
-          <option>TOGOCEL</option>
-          <option>MOOV</option>
-        </ng-container>
-        </select>
-    </div>
-    <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      Payer
-    </button>
-  </form>
+<!-- Page Header -->
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col-sm-12">
+  <div class="page-sub-header">
+    <h3 class="page-title">Payement</h3>
+    <!-- <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="students.html">Student</a></li>
+      <li class="breadcrumb-item active">Add Students</li>
+    </ul> -->
+  </div>
 </div>
+</div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+<div class="col-sm-12">
+
+<div class="card comman-shadow">
+  <div class="card-body">
+
+    <!-- payment.component.html -->
+      <form #paymentForm="ngForm" (ngSubmit)="makePayment()">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="form-title student-info">Effectuer un paiement<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+          </div>
+            <!-- <div style="margin-bottom: 15px;">
+              <label for="token">Token (Clé API):</label>
+              <input type="text" id="token" required [(ngModel)]="paymentData.token" name="token" class="form-control"/>
+            </div> -->
+            <div class="col-12 col-sm-4">
+              <div class="form-group local-forms">
+                <label for="amount">Montant:</label>
+                <input type="number" id="amount" required [(ngModel)]="paymentData.amount" name="amount" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="form-group local-forms">
+                <label for="identifier">Identifiant:</label>
+                <input type="text" id="identifier" required [(ngModel)]="paymentData.identifier" name="identifier" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="form-group local-forms">
+                <label for="description">Description:</label>
+                <input type="text" id="description" [(ngModel)]="paymentData.description" name="description" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="form-group local-forms">
+                <label for="phone">Téléphone:</label>
+                <input type="tel" id="phone" [(ngModel)]="paymentData.phone" name="phone" class="form-control"/>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="form-group local-forms">
+                <label for="network">Réseau:</label>
+                <select [(ngModel)]="paymentData.network" name="network" class="form-control">
+                  <ng-container >
+                    <option>TOGOCEL</option>
+                    <option>MOOV</option>
+                  </ng-container>
+                  </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="student-submit">
+                <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                  Payer
+                </button>
+              </div>
+            </div>
+          </div>
+      </form>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /Page Wrapper -->

@@ -8,6 +8,7 @@ import { PlaceService } from 'src/app/service/place.service';
 import { SalleService } from 'src/app/service/salle.service';
 import { StockInfoService } from 'src/app/service/stock-info.service';
 import { TicketService } from 'src/app/service/ticket.service';
+import { ToasterService } from 'src/app/service/toast/toaster.service';
 
 @Component({
   selector: 'app-post',
@@ -26,13 +27,14 @@ export class PostTicketComponent implements OnInit{
     private service: TicketService,
     private stock:StockInfoService,
     private serviceSal: SalleService,
-    private servicePla: PlaceService
+    private servicePla: PlaceService,
+    private toaster: ToasterService
   ) {}
 
   ngOnInit(){
     this.getPlace();
     this.getSalle();
-    this.getUserInfo(); 
+    this.getUserInfo();
     this.postTicketForm = this.fb.group({
       nomClient:['', Validators.required],
       prix:['', Validators.required],
@@ -47,7 +49,8 @@ export class PostTicketComponent implements OnInit{
     this.service.postTicket(this.postTicketForm.value).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
-        this.router.navigateByUrl("/ticket");
+        this.router.navigate(['/home/ticket']);
+        this.toaster.showSuccess('réservation effectuée','tickets')
       }
     })
   }
@@ -73,5 +76,6 @@ export class PostTicketComponent implements OnInit{
     this.user = this.stock.getuserinfo();  // Appel de la méthode du service
     console.log(this.user);
   }
+
 
 }

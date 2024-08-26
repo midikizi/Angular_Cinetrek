@@ -5,7 +5,7 @@ export class Film {
     duree: Date;
     realisateur: string;
     description: string;
-    photo:String;
+    photo:any;
     dateSortie: Date;
     category: number;
 
@@ -16,7 +16,7 @@ export class Film {
       this.duree = new Date();
       this.realisateur = "";
       this.description = "";
-      this.photo = "";
+      this.photo = null;
       this.dateSortie = new Date();
       this.category = 0;
     }

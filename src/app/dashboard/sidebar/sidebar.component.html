@@ -66,6 +66,12 @@
 
 <ng-container *ngIf="user.is_gerant == false">
 
+  <li class="submenu active">
+    <a routerLink="/home/acceuil">
+      <i class="fa-solid fa-house"></i> <span> Home</span> <span class="menu-arrow"></span>
+    </a>
+  </li>
+
   <li class="submenu">
     <a routerLink="/home/show-projection"><i class="fas fa-file-invoice-dollar"></i> <span> Projections
     </span> <span class="menu-arrow"></span></a>
@@ -79,7 +85,13 @@
 
   <li class="submenu">
     <a routerLink="/home/payement">
-      <i class="fa-solid fa-ticket"></i> <span> Tickets</span> <span class="menu-arrow"></span>
+      <i class="fa-solid fa-money-check-dollar"></i> <span> Payement</span> <span class="menu-arrow"></span>
+    </a>
+  </li>
+
+  <li class="submenu">
+    <a routerLink="/home/ticket">
+      <i class="fa-solid fa-ticket"></i> <span> Reservation</span> <span class="menu-arrow"></span>
     </a>
   </li>
 </ng-container>

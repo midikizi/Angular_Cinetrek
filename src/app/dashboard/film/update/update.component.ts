@@ -58,8 +58,21 @@ export class UpdateFilmComponent implements OnInit{
 
 
   updateFilm(){
-    console.log(this.updateFilmForm.value);
-    this.service.updateFilm(this.id,this.updateFilmForm.value).subscribe((res)=>{
+    const formData = new FormData();
+
+    console.log(this.updateFilmForm.value)
+    formData.append('photo', this.updateFilmForm.value.photo);
+    formData.append('titre', this.updateFilmForm.value.titre);
+    formData.append('description', this.updateFilmForm.value.description);
+    formData.append('realisateur', this.updateFilmForm.value.realisateur);
+    formData.append('dateSortie', this.updateFilmForm.value.dateSortie);
+    formData.append('duree', this.updateFilmForm.value.duree);
+    formData.append('category', this.updateFilmForm.value.category);
+
+    formData.forEach(
+      (value, key) => console.log(key, value)
+    )
+    this.service.updateFilm(this.id,formData ).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
         this.router.navigate(['/home/film']);

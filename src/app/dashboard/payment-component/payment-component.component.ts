@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PaymentServiceService } from 'src/app/service/payment-service.service';
 import { StockInfoService } from 'src/app/service/stock-info.service';
+import { ToasterService } from 'src/app/service/toast/toaster.service';
 
 @Component({
   selector: 'app-payment-component',
@@ -22,6 +24,8 @@ export class PaymentComponentComponent implements OnInit{
 
   constructor(private paymentService: PaymentServiceService,
     private stock:StockInfoService,
+    private toaster: ToasterService,
+    private router: Router,
   ) {}
 
   ngOnInit(){
@@ -44,6 +48,8 @@ export class PaymentComponentComponent implements OnInit{
     const token = this.token;
     const url = 'http://localhost:4200/home/acceuil';
     const {amount, identifier, description, phone, network } = this.paymentData;
-    this.paymentService.redirectToPayment(token, amount, identifier, description, url, phone, network);
+    // this.router.navigate(['/home/acceuil']);
+    this.toaster.showWarring('Service non disponible pour le moment','payement')
+    // this.paymentService.redirectToPayment(token, amount, identifier, description, url, phone, network);
   }
 }

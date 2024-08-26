@@ -31,7 +31,7 @@ export class PostFilmComponent implements OnInit{
       realisateur:['', Validators.required],
       dateSortie: ['', Validators.required],
       duree: ['', Validators.required],
-      photo: [null, Validators.required],
+      photo: ['', Validators.required],
       category: ['', Validators.required],
     })
     this.getCategorie();
@@ -49,8 +49,21 @@ export class PostFilmComponent implements OnInit{
   }
 
   postFilm(){
+    const formData = new FormData();
+
     console.log(this.postFilmForm.value)
-    this.service.postFilm(this.postFilmForm.value).subscribe((res)=>{
+    formData.append('photo', this.postFilmForm.value.photo);
+    formData.append('titre', this.postFilmForm.value.titre);
+    formData.append('description', this.postFilmForm.value.description);
+    formData.append('realisateur', this.postFilmForm.value.realisateur);
+    formData.append('dateSortie', this.postFilmForm.value.dateSortie);
+    formData.append('duree', this.postFilmForm.value.duree);
+    formData.append('category', this.postFilmForm.value.category);
+
+    formData.forEach(
+      (value, key) => console.log(key, value)
+    )
+    this.service.postFilm(formData).subscribe((res)=>{
       console.log(res);
       if(res.id != null){
         this.router.navigate(['/home/film']);
@@ -62,5 +75,5 @@ export class PostFilmComponent implements OnInit{
       this.postFilmForm.value.photo = event.target.files[0];
   }
 
-  
+
 }
