@@ -19,6 +19,7 @@ export class FilmComponent implements OnInit{
   categorie: Film | any;
   user!: any;
   categories!: Categorie[];
+  searchTerm: string = ''; // Nouvelle variable pour la recherche
 
   constructor(private service:FilmService,
     private stock:StockInfoService,
@@ -65,6 +66,18 @@ export class FilmComponent implements OnInit{
   getCategorieName(id: number): string {
     const cat = this.categories.find(v => v.id === id);console.log(id,cat);
     return cat ? cat.nom : 'Catégorie inconnue';
+  }
+
+  filteredFilms() {
+    if (!this.searchTerm) {
+      return this.films;
+    }
+    const lowerSearchTerm = this.searchTerm.toLowerCase();
+    return this.films.filter(film =>
+      film.titre.toLowerCase().includes(lowerSearchTerm) ||  // Par titre
+      film.realisateur.toLowerCase().includes(lowerSearchTerm)  // Par réalisateur
+      // Ajoutez d'autres filtres si nécessaire, comme catégorie, durée, etc.
+    );
   }
 
 }
